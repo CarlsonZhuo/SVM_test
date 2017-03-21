@@ -41,10 +41,13 @@ for c = 1:4
     
     if strcmp(opt_method, 'fsvrg')
         x(:,c) = fsvrg(train_samples, train_labels, gamma, max_it);
+        % x(:,c) = Alg_FSVRG(full(train_samples), train_labels, gamma, max_it);
     elseif strcmp(opt_method, 'svrg')
         x(:,c) = svrg(train_samples, train_labels, gamma, max_it);
+        % x(:,c) = Alg_SVRG(full(train_samples), train_labels, gamma, max_it);
     else
         x(:,c) = stoc_gd(train_samples, train_labels, gamma, max_it, d_bound_sgd);
+        % x(:,c) = Alg_SGD(full(train_samples), train_labels, gamma, max_it, d_bound_sgd);
     end
 end
 %toc
